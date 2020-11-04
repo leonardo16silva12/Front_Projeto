@@ -1,0 +1,178 @@
+<div class="container">
+    <form autocomplete="off" (ngSubmit)="adicionarPessoa()" [formGroup]="formulario">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <h1 class="alignTT"> Cadastro de Pessoas:</h1>
+            </div>
+
+            <div class="ui-g-12 ui-md-9 ui-fluid">
+                <label class="alignT">Nome: </label>
+                <input pInputText type="text" name="nome" formControlName="nome">
+
+                <app-message [control]="formulario.get('nome')" error="required" text="Informe o Nome da Categoria!!!"></app-message>
+                <app-message [control]="formulario.get('nome')" error="maxlength" text="Mínimo de 5 Caracteres!!!"></app-message>
+            </div>
+
+            <div class="ui-g-12 ui-md-9 ui-fluid">
+                <label class="alignT">Logradouro: </label>
+                <input pInputText type="text" name="logradouro" formControlName="logradouro">
+
+                <app-message [control]="formulario.get('logradouro')" error="required" text="Informe do Logradouro!!!"></app-message>
+                <app-message [control]="formulario.get('logradouro')" error="maxlength" text="Mínimo de 5 Caracteres!!!"></app-message>
+            </div>
+
+            <div class="ui-g-12 ui-md-9 ui-fluid">
+                <label class="alignT">Número: </label>
+                <input pInputText type="text" name="numero" formControlName="numero">
+
+                <app-message [control]="formulario.get('numero')" error="required" text="Informe o Número!!!"></app-message>
+                <app-message [control]="formulario.get('numero')" error="maxlength" text="Mínimo de 5 Caracteres!!!"></app-message>
+            </div>
+
+            <div class="ui-g-12 ui-md-9 ui-fluid">
+                <label class="alignT">Complemento: </label>
+                <input pInputText type="text" name="complemento" formControlName="complemento">
+
+                <app-message [control]="formulario.get('complemento')" error="required" text="Informe um Complemento!!!"></app-message>
+                <app-message [control]="formulario.get('complemento')" error="maxlength" text="Mínimo de 5 Caracteres!!!"></app-message>
+            </div>
+
+            <div class="ui-g-12 ui-md-9 ui-fluid">
+                <label class="alignT">Bairro: </label>
+                <input pInputText type="text" name="bairro" formControlName="bairro">
+
+                <app-message [control]="formulario.get('bairro')" error="required" text="Informe o Bairro!!!"></app-message>
+                <app-message [control]="formulario.get('bairro')" error="maxlength" text="Mínimo de 5 Caracteres!!!"></app-message>
+            </div>
+
+            <div class="ui-g-12 ui-md-9 ui-fluid">
+                <label class="alignT">CEP: </label>
+                <input pInputText type="text" name="cep" formControlName="cep">
+
+                <app-message [control]="formulario.get('cep')" error="required" text="Informe o CEP!!!"></app-message>
+                <app-message [control]="formulario.get('cep')" error="maxlength" text="Mínimo de 5 Caracteres!!!"></app-message>
+            </div>
+
+            <div class="ui-g-12 ui-md-9 ui-fluid">
+                <label class="alignT">Cidade: </label>
+                <input pInputText type="text" name="cidade" formControlName="cidade">
+
+                <app-message [control]="formulario.get('cidade')" error="required" text="Informe a Cidade!!!"></app-message>
+                <app-message [control]="formulario.get('cidade')" error="maxlength" text="Mínimo de 5 Caracteres!!!"></app-message>
+            </div>
+
+            <div class="ui-g-12 ui-md-9 ui-fluid">
+                <label class="alignT">Estado: </label>
+                <input pInputText type="text" name="estado" formControlName="estado">
+
+                <app-message [control]="formulario.get('estado')" error="required" text="Informe o Estado!!!"></app-message>
+                <app-message [control]="formulario.get('estado')" error="maxlength" text="Mínimo de 5 Caracteres!!!"></app-message>
+            </div>
+
+            <div class="container">
+
+                <br>
+              
+                <div class="ui-g-12">
+                  <p-panel>
+                    <p-header>
+                      <p class="alignTT"> Contatos </p>
+                    </p-header>
+              
+                    <button pButton type="button" class="p-button-success" icon="pi pi-plus" styleClass="p-button"
+                      label="Novo Contato" (click)="prepararNovoContato()">
+                    </button>
+              
+                    <div class="ui-g">
+              
+                      <div class="ui-g-12">
+              
+                        <p-table [paginator]="true" [lazy]="true" [responsive]="true" #tabela class="paginac" [value]="results" [paginator]="true" [rows]="filtro.itensPorPagina" [totalRecords]="totalRegistros" [lazy]="true" [responsive]="true" (onLazyLoad)="aoMudarPagina($event)" #tabela>
+              
+                          <ng-template pTemplate="header">
+              
+                            <tr>
+                                <th class="col-id-header">#</th>
+                                <th>Nome do Contato</th>
+                                <th class="col-email-header">Email</th>
+                                <th>Telefone</th>
+                                <th class="col-acoes-header">Ações</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-con>
+                            <tr>
+                                <td class="col-id">{{con.codigo}}</td>
+                                <td class="alignText">{{con.nome}}</td>
+                                <td class="col-preco">{{con.email}}</td>
+                                <td class="alignText">{{con.telefone}}</td>
+                                <td class="col-acoes">
+                                    <a class="separeB" pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top" [routerLink]="['/pessoas', con.codigo]"> </a>
+                                    <button class="separeB" pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top" (click)="confirmarExclusao(con)"> </button>
+                                </td>
+                            </tr>
+              
+                          </ng-template>
+              
+                          <ng-template pTemplate="emptymessage">
+              
+                            <tr>
+              
+                              <td colspan="5">
+                                Nenhum contato cadastrado!!!
+                              </td>
+              
+                            </tr>
+              
+                          </ng-template>
+              
+                        </p-table>
+                        
+                      </div>
+              
+                    </div>
+                  </p-panel>
+                </div>
+              </div>
+            
+
+            <div class="ui-g-12">
+                <button class="buttonS" pButton type="submit" label="Cadastrar" [disabled]="formulario.invalid"></button>
+                <button class="buttonS" pButton type="button" label="Novo"></button>
+
+                <a routerLink="/pessoas" class="alignT"> Voltar para a Pesquisa</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<p-dialog [(visible)]="exibirFormularioContato" modal="true" [closable]="false" [style]="{width: '850px', maxWidth: '850px'}">
+  <p-header class="alignTT">
+    Novo Contato
+</p-header>
+  
+
+  <form autocomplete="off">
+
+    <div class="ui-g-10 ui-fluid">
+      <label class="alignT"> Contato </label>
+      <p-autoComplete name="nome" [size]="200" placeholder="Digite o nome do contato" [suggestions]="results">
+      </p-autoComplete>
+    </div>
+
+    <div class="ui-g-3 ui-fluid">
+      <label class="alignT"> Email </label>
+      <input pInputText type="text" name="email">
+    </div>
+
+    <div class="ui-g-3 ui-fluid">
+      <label class="alignT"> Telefone </label>
+      <input pInputText type="text" name="telefone">
+    </div>
+
+    <div class="ui-g-12">
+      <button pButton type="submit" class="p-button-success" styleClass="p-button" label="Confirmar"></button>
+      <button pButton type="button" class="p-button-success" styleClass="p-button" label="Fechar" (click)="closeForm()"></button>
+    </div>
+
+  </form>
+</p-dialog>

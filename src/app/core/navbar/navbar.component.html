@@ -1,0 +1,27 @@
+<nav class="navbar">
+  <div class="container">
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <a href="javascript:;" class="navbar-toggle animate__animated animate__fadeInLeft" (click)="exibirMenu=!exibirMenu">
+          <i class="pi pi-bars animate__animated animate__fadeInLeft" style="font-size: 2em; margin-left:50px;"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <ul class="navbar-menu animate__animated animate__fadeInLeft" [hidden]="!exibirMenu">
+    <li class="navbar-usuario">
+      <img class="img"
+        src="assets/logolion.png">
+      <p class="alignT">Seja bem vindo $Usuário$</p>
+    </li>
+
+    <li class="navbar-menuitem whiteback">
+      <i class="pi pi-users" style="font-size: 2em"></i>
+      <a routerLink="/pessoas">Pessoas</a>
+    </li>
+
+    <li class="navbar-menuitem whiteback">
+      <i class="pi pi-sign-out" style="font-size: 2em"></i>
+      <a href="#">Logout</a></li>
+  </ul>
+</nav>

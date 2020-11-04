@@ -1,0 +1,80 @@
+.navbar {
+  padding: 10px 0;
+  background: rgb(255,253,233);
+  background: linear-gradient(90deg, rgba(255,253,233,1) 5%, rgba(247,176,54,1) 50%, rgba(192,98,14,1) 100%);
+}
+
+.navbar-toggle {
+  color: #FFF;
+}
+
+.navbar-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 175px;
+  margin: 0;
+  padding: 0;
+  z-index: 9998;
+  background: rgb(255,253,233);
+  background: linear-gradient(180deg, rgba(255,253,233,1) 5%, rgba(247,176,54,1) 50%, rgba(192,98,14,1) 100%);
+  list-style: none;
+}
+
+.navbar-menuitem {
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  padding: 15px;
+}
+
+.navbar-menuitem a {
+  color: #FFF;
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+}
+
+.navbar-menuitem a:hover {
+  color: #6e2306;
+}
+
+.navbar-usuario {
+  padding: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ffffff;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.img {
+  max-width: 125px;
+  max-height: 125px;
+  width: auto;
+  height: auto;
+  background: no-repeat center;
+  background-size: cover;
+  display: inline-block;
+  margin: 0 auto;
+  margin-left: 15px;
+}
+
+.alignT {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: 'Roboto', sans-serif;
+}
+
+.iconSize {
+  size: 15px;
+}
+
+pi pi-users {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: 'Roboto', sans-serif;
+}
